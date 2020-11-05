@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - env: 
+        GITHUB_TOKEN: 12b41ba434b326f9e55722e86447d80088361ce4
     - uses: actions/checkout@v2
     - uses: subosito/flutter-action@v1.4.0
       with:
