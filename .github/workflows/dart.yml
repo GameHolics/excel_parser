@@ -16,7 +16,15 @@ jobs:
     - uses: subosito/flutter-action@v1.4.0
       with:
         channel: beta
-    - name: Install dependencies
-      run: flutter pub get
-    - name: Publish Site
-      run: sh publish.sh
+    - run: flutter config --enable-web
+    - run: flutter pub get
+    - run: flutter build web --release
+    - run: git config --global --add user.name AllenDK
+    - run: git config --global --add user.email allendk@foxmail.com
+    - run: cd build/web
+    - run: git init
+    - run: git remote add origin git@github.com:GameHolics/excel_parser.git
+    - run: git checkout -b gh-pages
+    - run: git add --all
+    - run: git commit -m "update"
+    - run: git push origin gh-pages -f
