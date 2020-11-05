@@ -5,6 +5,8 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+env:
+  GITHUB_TOKEN: 12b41ba434b326f9e55722e86447d80088361ce4
 
 jobs:
   build:
@@ -13,21 +15,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/labeler@v2
-      with:
-        repo-token: 12b41ba434b326f9e55722e86447d80088361ce4
     - uses: subosito/flutter-action@v1.4.0
       with:
         channel: beta
-    - run: flutter config --enable-web
-    - run: flutter pub get
-    - run: flutter build web --release
-    - run: git config --global --add user.name AllenDK
-    - run: git config --global --add user.email allendk@foxmail.com
-    - run: cd build/web
-    - run: git init
-    - run: git remote set-url --add origin git@github.com:GameHolics/excel_parser.git
-    - run: git checkout -b gh-pages
-    - run: git add --all
-    - run: git commit -m "update"
-    - run: git push origin gh-pages -f
+    - run: |
+        flutter config --enable-web
+        flutter pub get
+        flutter build web --release
+        git config --global --add user.name AllenDK
+        git config --global --add user.email allendk@foxmail.com
+        cd build/web
+        git init
+        git remote set-url --add origin git@github.com:GameHolics/excel_parser.git
+        git checkout -b gh-pages
+        git add --all
+        git commit -m "update"
+        git push origin gh-pages -f
