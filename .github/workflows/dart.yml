@@ -23,7 +23,7 @@ jobs:
     - run: git config --global --add user.email allendk@foxmail.com
     - run: cd build/web
     - run: git init
-    - run: git remote add origin git@github.com:GameHolics/excel_parser.git
+    - run: git remote set-url --add origin git@github.com:GameHolics/excel_parser.git
     - run: git checkout -b gh-pages
     - run: git add --all
     - run: git commit -m "update"
