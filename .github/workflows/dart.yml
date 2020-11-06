@@ -5,12 +5,9 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-env:
-  GITHUB_TOKEN: 12b41ba434b326f9e55722e86447d80088361ce4
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +15,8 @@ jobs:
     - uses: subosito/flutter-action@v1.4.0
       with:
         channel: beta
-    - run: |
+    - name: Publish Build
+      run: |
         flutter config --enable-web
         flutter pub get
         flutter build web --release
@@ -32,3 +30,5 @@ jobs:
         git add --all
         git commit -m "update"
         git push origin gh-pages -f
+      env:
+        GITHUB_TOKEN: e186ebff716cbca3fcdcb59733bbcb14faff5c06
