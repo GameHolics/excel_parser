@@ -25,9 +25,8 @@ jobs:
         cd build/web
         rm -rf .git
         git init
-        git remote add origin https://github.com/GameHolics/excel_parser.git
         git checkout -b gh-pages
         git add --all && git commit -m "update"
-        git push origin gh-pages -f
+        git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/excel_parser.git" gh-pages -f
       env:
         token: ${{ secrets.GITHUB_TOKEN }}
