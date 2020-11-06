@@ -29,4 +29,4 @@ jobs:
         git add --all && git commit -m "update"
         git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/GameHolics/excel_parser.git" gh-pages -f
       env:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
