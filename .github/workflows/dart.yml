@@ -20,6 +20,8 @@ jobs:
         flutter config --enable-web
         flutter pub get
         flutter build web --release
+        git config --global user.email "allendk@foxmail.com"
+        git config --global user.name "AllenDK"
         cd build/web
         rm -rf .git
         git init
