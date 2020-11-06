@@ -25,7 +25,7 @@ jobs:
         cd build/web
         rm -rf .git
         git init
-        git remote add origin https://github.com:GameHolics/excel_parser
+        git remote add origin https://github.com/GameHolics/excel_parser.git
         git checkout -b gh-pages
         git add --all && git commit -m "update"
         git push origin gh-pages -f
