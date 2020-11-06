@@ -20,15 +20,12 @@ jobs:
         flutter config --enable-web
         flutter pub get
         flutter build web --release
-        git config --global --add user.name AllenDK
-        git config --global --add user.email allendk@foxmail.com
         cd build/web
         rm -rf .git
         git init
         git remote add origin git@github.com:GameHolics/excel_parser.git
         git checkout -b gh-pages
-        git add --all
-        git commit -m "update"
+        git add --all && git commit -m "update"
         git push origin gh-pages -f
       env:
-        GITHUB_TOKEN: e186ebff716cbca3fcdcb59733bbcb14faff5c06
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
